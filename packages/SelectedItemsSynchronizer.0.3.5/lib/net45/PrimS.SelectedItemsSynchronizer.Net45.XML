@@ -1,0 +1,171 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PrimS.SelectedItemsSynchronizer.Net45</name>
+    </assembly>
+    <members>
+        <member name="T:PrimS.SelectedItemsSynchronizer.IListItemConverter">
+            <summary>
+            Converts items in the Master list to Items in the target list, and back again.
+            </summary>
+        </member>
+        <member name="M:PrimS.SelectedItemsSynchronizer.IListItemConverter.Convert(System.Object)">
+            <summary>
+            Converts the specified master list item.
+            </summary>
+            <param name="masterListItem">The master list item.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:PrimS.SelectedItemsSynchronizer.IListItemConverter.ConvertBack(System.Object)">
+            <summary>
+            Converts the specified target list item.
+            </summary>
+            <param name="targetListItem">The target list item.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="T:PrimS.SelectedItemsSynchronizer.ISynchronizationManager">
+            <summary>
+            Provides functionality to interact with the Synchronization Manager.
+            </summary>
+        </member>
+        <member name="M:PrimS.SelectedItemsSynchronizer.ISynchronizationManager.StartSynchronizing">
+            <summary>
+            Starts the synchronizing.
+            </summary>
+        </member>
+        <member name="M:PrimS.SelectedItemsSynchronizer.ISynchronizationManager.StopSynchronizing">
+            <summary>
+            Stops the synchronizing.
+            </summary>
+        </member>
+        <member name="T:PrimS.SelectedItemsSynchronizer.MultiSelectorBehaviours">
+            <summary>
+            A sync behaviour for a multiselector.
+            </summary>
+        </member>
+        <member name="F:PrimS.SelectedItemsSynchronizer.MultiSelectorBehaviours.SynchronizedSelectedItems">
+            <summary>
+            The synchronized selected items.
+            </summary>
+        </member>
+        <member name="M:PrimS.SelectedItemsSynchronizer.MultiSelectorBehaviours.GetSynchronizedSelectedItems(System.Windows.DependencyObject)">
+            <summary>
+            Gets the synchronized selected items.
+            </summary>
+            <param name="dependencyObject">The dependency object.</param>
+            <returns>The list that is acting as the sync list.</returns>
+        </member>
+        <member name="M:PrimS.SelectedItemsSynchronizer.MultiSelectorBehaviours.SetSynchronizedSelectedItems(System.Windows.DependencyObject,System.Collections.IList)">
+            <summary>
+            Sets the synchronized selected items.
+            </summary>
+            <param name="dependencyObject">The dependency object.</param>
+            <param name="value">The value to be set as synchronized items.</param>
+        </member>
+        <member name="M:PrimS.SelectedItemsSynchronizer.MultiSelectorBehaviours.BaseSynchronizationManager`1.StartSynchronizing">
+            <summary>
+            Starts synchronizing the list.
+            </summary>
+        </member>
+        <member name="M:PrimS.SelectedItemsSynchronizer.MultiSelectorBehaviours.BaseSynchronizationManager`1.StopSynchronizing">
+            <summary>
+            Stops synchronizing the list.
+            </summary>
+        </member>
+        <member name="M:PrimS.SelectedItemsSynchronizer.MultiSelectorBehaviours.CalendarSynchronizationManager.#ctor(System.Windows.Controls.Calendar)">
+            <summary>
+            Initialises a new instance of the <see cref="T:PrimS.SelectedItemsSynchronizer.MultiSelectorBehaviours.CalendarSynchronizationManager"/> class.
+            </summary>
+            <param name="calendar">The calendar to sync.</param>
+        </member>
+        <member name="T:PrimS.SelectedItemsSynchronizer.MultiSelectorBehaviours.SelectorSynchronizationManager">
+            <summary>
+            A synchronization manager.
+            </summary>
+        </member>
+        <member name="M:PrimS.SelectedItemsSynchronizer.MultiSelectorBehaviours.SelectorSynchronizationManager.#ctor(System.Windows.Controls.Primitives.Selector)">
+            <summary>
+            Initialises a new instance of the <see cref="T:PrimS.SelectedItemsSynchronizer.MultiSelectorBehaviours.SelectorSynchronizationManager"/> class.
+            </summary>
+            <param name="selector">The selector.</param>
+        </member>
+        <member name="T:PrimS.SelectedItemsSynchronizer.TwoListSynchronizer">
+            <summary>
+            Keeps two lists synchronized. 
+            </summary>
+        </member>
+        <member name="M:PrimS.SelectedItemsSynchronizer.TwoListSynchronizer.#ctor(System.Collections.IList,System.Collections.IList,PrimS.SelectedItemsSynchronizer.IListItemConverter)">
+            <summary>
+            Initialises a new instance of the <see cref="T:PrimS.SelectedItemsSynchronizer.TwoListSynchronizer"/> class.
+            </summary>
+            <param name="masterList">The master list.</param>
+            <param name="targetList">The target list.</param>
+            <param name="masterTargetConverter">The master-target converter.</param>
+        </member>
+        <member name="M:PrimS.SelectedItemsSynchronizer.TwoListSynchronizer.#ctor(System.Collections.IList,System.Collections.IList)">
+            <summary>
+            Initialises a new instance of the <see cref="T:PrimS.SelectedItemsSynchronizer.TwoListSynchronizer"/> class.
+            </summary>
+            <param name="masterList">The master list.</param>
+            <param name="targetList">The target list.</param>
+        </member>
+        <member name="M:PrimS.SelectedItemsSynchronizer.TwoListSynchronizer.StartSynchronizing">
+            <summary>
+            Starts synchronizing the lists.
+            </summary>
+        </member>
+        <member name="M:PrimS.SelectedItemsSynchronizer.TwoListSynchronizer.StopSynchronizing">
+            <summary>
+            Stop synchronizing the lists.
+            </summary>
+        </member>
+        <member name="M:PrimS.SelectedItemsSynchronizer.TwoListSynchronizer.ReceiveWeakEvent(System.Type,System.Object,System.EventArgs)">
+            <summary>
+            Receives events from the centralized event manager.
+            </summary>
+            <param name="managerType">The type of the <see cref="T:System.Windows.WeakEventManager"/> calling this method.</param>
+            <param name="sender">Object that originated the event.</param>
+            <param name="e">Event data.</param>
+            <returns>
+            True if the listener handled the event. It is considered an error by the <see cref="T:System.Windows.WeakEventManager"/> handling in WPF to register a listener for an event that the listener does not handle. Regardless, the method should return false if it receives an event that it does not recognize or handle.
+            </returns>
+        </member>
+        <member name="M:PrimS.SelectedItemsSynchronizer.TwoListSynchronizer.ListenForChangeEvents(System.Collections.IList)">
+            <summary>
+            Listens for change events on a list.
+            </summary>
+            <param name="list">The list to listen to.</param>
+        </member>
+        <member name="M:PrimS.SelectedItemsSynchronizer.TwoListSynchronizer.StopListeningForChangeEvents(System.Collections.IList)">
+            <summary>
+            Stops listening for change events.
+            </summary>
+            <param name="list">The list to stop listening to.</param>
+        </member>
+        <member name="M:PrimS.SelectedItemsSynchronizer.TwoListSynchronizer.UpdateListsFromSource(System.Collections.IList)">
+            <summary>
+            Makes sure that all synchronized lists have the same values as the source list.
+            </summary>
+            <param name="sourceList">The source list.</param>
+        </member>
+        <member name="T:PrimS.SelectedItemsSynchronizer.TwoListSynchronizer.DoNothingListItemConverter">
+            <summary>
+            An implementation that does nothing in the conversions.
+            </summary>
+        </member>
+        <member name="M:PrimS.SelectedItemsSynchronizer.TwoListSynchronizer.DoNothingListItemConverter.Convert(System.Object)">
+            <summary>
+            Converts the specified master list item.
+            </summary>
+            <param name="masterListItem">The master list item.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+        <member name="M:PrimS.SelectedItemsSynchronizer.TwoListSynchronizer.DoNothingListItemConverter.ConvertBack(System.Object)">
+            <summary>
+            Converts the specified target list item.
+            </summary>
+            <param name="targetListItem">The target list item.</param>
+            <returns>The result of the conversion.</returns>
+        </member>
+    </members>
+</doc>
